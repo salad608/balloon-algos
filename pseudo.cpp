@@ -6,7 +6,8 @@ bool isGoal(int row, int col, pair<int, int> goal) {
 
 int heuristic(int row, int col, pair<int, int> goal) {
     //distance formula
-    return sqrt((row - goal.first) * (row - goal.first) + (col - goal.second) * (col - goal.second));
+    return sqrt((row - goal.first) * (row - goal.first)
+        + (col - goal.second) * (col - goal.second));
 }
 
 void aStar(int row, int col, pair<int, int> goal, pair<int, int> src) {
@@ -27,6 +28,18 @@ void aStar(int row, int col, pair<int, int> goal, pair<int, int> src) {
         aStar(row, col, goal, src<++curX, ++curY>);
     }
     //unfinished
+}
+
+void database(int row, int col, pair<int, int> goal, pair<int, int> src) {
+    if (isGoal(row, col, goal)) {
+        cout << "Lat/Long:" << endl;
+        cout << src.first << " " << src.second << endl;
+        cout << "Windfield Data:" << endl;
+        cout << wf.loc << " " << wf.temp << " " << wf.wind << endl;
+        cout << "Drought Data:" << endl;
+        cout << "Index: " << wf.index << "Most Affected By: " << wf.condition;
+        return 0;
+    }
 }
 
 int main() {
